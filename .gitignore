@@ -231,3 +231,6 @@ kubeconfig
 **/mlruns/**
 
 **/baml_client
+
+# Kind log exports
+deployments/dev/kind/kind-logs-*/
