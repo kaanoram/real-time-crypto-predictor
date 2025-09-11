@@ -92,3 +92,19 @@ persistence:
 
 testFramework:
   enabled: false
+
+# Security/permissions settings to avoid init-chown failures on PVCs
+# Ensure Grafana runs as the standard UID/GID (472) and rely on fsGroup
+# instead of an init chown container, which can fail on some storage backends.
+securityContext:
+  runAsUser: 472
+  runAsGroup: 472
+  runAsNonRoot: true
+
+podSecurityContext:
+  fsGroup: 472
+  fsGroupChangePolicy: OnRootMismatch
+
+# Disable the Helm chart's chown init container
+initChownData:
+  enabled: false
