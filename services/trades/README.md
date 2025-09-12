@@ -39,7 +39,7 @@ Optional:
 - `PRODUCT_IDS`: JSON list of pairs if you want to override defaults (e.g., `"[\"ETH/EUR\", \"BTC/USD\"]"`). Defaults in code include: `ETH/EUR`, `BTC/USD`, `BTC/EUR`, `ETH/USD`, `SOL/USD`, `SOL/EUR`, `XRP/USD`, `XRP/EUR`.
 
 Notes:
-- The code reads an env file at `services/trades/.env` if present, but plain environment variables work equally well.
+- The code reads an env file at `services/trades/settings.env` if present, but plain environment variables work equally well.
 - Ensure the variable name is `KAFKA_TOPIC_NAME` (some older manifests may use `KAFKA_TOPIC`).
 
 Example local env file (`services/trades/settings.env`):
