@@ -40,7 +40,7 @@ class KrakenWebsocketAPI:
         except KeyError as e:
             logger.error(f'No `data` field with trades in the message {e}')
             return []
-        
+
         trades = [
             Trade.from_kraken_websocket_response(
                 product_id=trade['symbol'],
