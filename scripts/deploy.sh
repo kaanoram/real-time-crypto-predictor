@@ -34,6 +34,12 @@ if [ -f ${service}/kustomization.yaml ]; then
     kustomize build ${service} | kubectl apply -f -
 else
     # manually apply the deployment manifests
-    kubectl delete -f ${service}/${service}-d.yaml --ignore-not-found=true
-    kubectl apply -f ${service}/${service}-d.yaml
+    if [ "$env" = "dev" ]; then
+        manifest_path="${service}/${service}-d.yaml"
+    else
+        manifest_path="${service}/${service}.yaml"
+    fi
+
+    kubectl delete -f "${manifest_path}" --ignore-not-found=true
+    kubectl apply -f "${manifest_path}"
 fi
