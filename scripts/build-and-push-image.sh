@@ -32,7 +32,7 @@ else
     BUILD_DATE=$(date +%s)
 	docker buildx build --push \
         --platform linux/amd64 \
-        -t ghcr.io/real-world-ml/${image_name}:0.1.5-beta.${BUILD_DATE}  \
+        -t ghcr.io/kaanoram/${image_name}:0.1.5-beta.${BUILD_DATE}  \
         --label org.opencontainers.image.revision=$(git rev-parse HEAD) \
         --label org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ) \
         --label org.opencontainers.image.url="https://github.com/kaanoram/real-time-crypto-predictor/docker/${image_name}.Dockerfile" \
